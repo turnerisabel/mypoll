@@ -4,4 +4,6 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
 public class Answer extends PanacheEntity {
 
+
+
 }
