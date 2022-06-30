@@ -5,6 +5,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "QUESTION")
 public class Question extends PanacheEntity {
 
     @Id
