@@ -17,15 +17,16 @@ public class Answer extends PanacheEntity {
     @Column(name = "A_IP_ADRESS")
     private String IpAdress;
 
-    @Column(name = "A_OPTION")
-    private String option;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "AO_ID")
+    private AnswerOption answerOption;
 
     public Answer() {
     }
 
-    public Answer(String ipAdress, String option) {
+    public Answer(String ipAdress, AnswerOption answerOption) {
         IpAdress = ipAdress;
-        this.option = option;
+        this.answerOption = answerOption;
     }
 
     public Long getId() {
@@ -44,12 +45,12 @@ public class Answer extends PanacheEntity {
         IpAdress = ipAdress;
     }
 
-    public String getOption() {
-        return option;
+    public AnswerOption getAnswerOption() {
+        return answerOption;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    public void setAnswerOption(AnswerOption answerOption) {
+        this.answerOption = answerOption;
     }
 
     @Override
@@ -57,12 +58,12 @@ public class Answer extends PanacheEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Answer answer = (Answer) o;
-        return Objects.equals(id, answer.id) && Objects.equals(IpAdress, answer.IpAdress) && Objects.equals(option, answer.option);
+        return Objects.equals(id, answer.id) && Objects.equals(IpAdress, answer.IpAdress) && Objects.equals(answerOption, answer.answerOption);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, IpAdress, option);
+        return Objects.hash(id, IpAdress, answerOption);
     }
 
     @Override
@@ -70,8 +71,9 @@ public class Answer extends PanacheEntity {
         return "Answer{" +
                 "id=" + id +
                 ", IpAdress='" + IpAdress + '\'' +
-                ", option='" + option + '\'' +
+                ", answerOption=" + answerOption +
                 ", id=" + id +
                 '}';
     }
 }
+
