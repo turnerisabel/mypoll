@@ -71,9 +71,8 @@ public class Question extends PanacheEntity {
     public String toString() {
         return "Question{" +
                 "id=" + id +
-                ", answer=" + answer +
+                " answer=" + answer +
                 ", answerOption=" + answerOption +
-                ", id=" + id +
                 '}';
     }
 }
