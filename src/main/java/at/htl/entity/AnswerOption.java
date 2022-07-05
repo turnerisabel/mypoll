@@ -14,14 +14,14 @@ public class AnswerOption extends PanacheEntity {
     @Column(name = "AO_ID")
     private Long id;
 
-    @Column(name = "AO_OPTION")
-    private String option;
+    @Column(name = "AO_ANSWER_OPTION")
+    private String answerOption;
 
     public AnswerOption() {
     }
 
-    public AnswerOption(String option) {
-        this.option = option;
+    public AnswerOption(String answerOption) {
+        this.answerOption = answerOption;
     }
 
     public Long getId() {
@@ -33,11 +33,11 @@ public class AnswerOption extends PanacheEntity {
     }
 
     public String getOption() {
-        return option;
+        return answerOption;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    public void setAnswerOption(String answerOption) {
+        this.answerOption = answerOption;
     }
 
     @Override
@@ -45,20 +45,18 @@ public class AnswerOption extends PanacheEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AnswerOption that = (AnswerOption) o;
-        return Objects.equals(id, that.id) && Objects.equals(option, that.option);
+        return Objects.equals(id, that.id) && Objects.equals(answerOption, that.answerOption);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, option);
+        return Objects.hash(id, answerOption);
     }
 
     @Override
     public String toString() {
-        return "AnswerOption{" +
-                "id=" + id +
-                ", option='" + option + '\'' +
-                ", id=" + id +
+        return "{" +
+                "answerOption='" + answerOption + '\'' +
                 '}';
     }
 }

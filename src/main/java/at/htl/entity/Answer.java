@@ -71,9 +71,7 @@ public class Answer extends PanacheEntity {
         return "Answer{" +
                 "id=" + id +
                 ", IpAdress='" + IpAdress + '\'' +
-                ", answerOption=" + answerOption +
-                ", id=" + id +
-                '}';
+                ", " + answerOption;
     }
 }
 
