@@ -1,6 +1,5 @@
 package at.htl.entity;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
@@ -16,7 +15,7 @@ public class Answer extends PanacheEntityBase {
     private Long id;
 
     @Column(name = "ANSWER_IP_ADRESS")
-    private String IpAdress;
+    private String ipAddress;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ANSWER_OPTION_ID")
@@ -26,7 +25,7 @@ public class Answer extends PanacheEntityBase {
     }
 
     public Answer(String ipAdress, AnswerOption answerOption) {
-        IpAdress = ipAdress;
+        ipAddress = ipAdress;
         this.answerOption = answerOption;
     }
 
@@ -38,12 +37,12 @@ public class Answer extends PanacheEntityBase {
         this.id = id;
     }
 
-    public String getIpAdress() {
-        return IpAdress;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setIpAdress(String ipAdress) {
-        IpAdress = ipAdress;
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 
     public AnswerOption getAnswerOption() {
@@ -59,20 +58,21 @@ public class Answer extends PanacheEntityBase {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Answer answer = (Answer) o;
-        return Objects.equals(id, answer.id) && Objects.equals(IpAdress, answer.IpAdress) && Objects.equals(answerOption, answer.answerOption);
+        return this.toString().equals(answer.toString());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, IpAdress, answerOption);
+        return Objects.hash(id, ipAddress, answerOption);
     }
 
     @Override
     public String toString() {
         return "Answer{" +
                 "id=" + id +
-                ", IpAdress='" + IpAdress + '\'' +
-                ", " + answerOption;
+                ", IpAdress='" + ipAddress + '\'' +
+                ", answerOption=" + answerOption +
+                '}';
     }
 }
 

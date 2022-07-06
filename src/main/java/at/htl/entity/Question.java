@@ -2,6 +2,8 @@ package at.htl.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,8 +22,9 @@ public class Question extends PanacheEntityBase {
     @JoinColumn(name = "ANSWER_ID")
     private Answer answer;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "QUESTION_ID")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<AnswerOption> answerOptions;
 
     public Question() {
@@ -61,7 +64,7 @@ public class Question extends PanacheEntityBase {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Question question = (Question) o;
-        return Objects.equals(id, question.id) && Objects.equals(answer, question.answer) && Objects.equals(answerOptions, question.answerOptions);
+        return this.toString().equals(question.toString());
     }
 
     @Override

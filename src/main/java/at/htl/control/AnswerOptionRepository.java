@@ -10,4 +10,8 @@ import javax.transaction.Transactional;
 @Transactional
 public class AnswerOptionRepository implements PanacheRepository<AnswerOption> {
 
+    public void save(AnswerOption answerOption){
+        this.getEntityManager().merge(answerOption);
+    }
+
 }

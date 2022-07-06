@@ -1,5 +1,7 @@
 package at.htl.control;
 
+import at.htl.entity.Answer;
+import at.htl.entity.AnswerOption;
 import at.htl.entity.Question;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
@@ -9,5 +11,9 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 @Transactional
 public class QuestionRepository implements PanacheRepository<Question> {
+
+    public void save(Question question){
+        this.getEntityManager().merge(question);
+    }
 
 }
