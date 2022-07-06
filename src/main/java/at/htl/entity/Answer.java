@@ -1,24 +1,25 @@
 package at.htl.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ANSWER")
-public class Answer extends PanacheEntity {
+@Table(name = "P_ANSWER")
+public class Answer extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "A_ID")
+    @Column(name = "ANSWER_ID")
     private Long id;
 
-    @Column(name = "A_IP_ADRESS")
+    @Column(name = "ANSWER_IP_ADRESS")
     private String IpAdress;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "AO_ID")
+    @JoinColumn(name = "ANSWER_OPTION_ID")
     private AnswerOption answerOption;
 
     public Answer() {

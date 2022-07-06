@@ -1,20 +1,21 @@
 package at.htl.entity;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ANSWER_OPTION")
-public class AnswerOption extends PanacheEntity {
+@Table(name = "P_ANSWER_OPTION")
+public class AnswerOption extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "AO_ID")
+    @Column(name = "ANSWER_OPTION_ID")
     private Long id;
 
-    @Column(name = "AO_ANSWER_OPTION")
+    @Column(name = "ANSWER_OPTION")
     private String answerOption;
 
     public AnswerOption() {
