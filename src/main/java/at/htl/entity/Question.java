@@ -70,9 +70,8 @@ public class Question extends PanacheEntity {
     @Override
     public String toString() {
         return "Question{" +
-                "id=" + id +
-                " answer=" + answer +
-                ", answerOption=" + answerOption +
-                '}';
+                //"id=" + id +
+                " " + answer;
+                //", " + answerOption +
     }
 }

@@ -12,9 +12,7 @@ public class AnswerTest {
     void t010_addAnswer(){
         //Long id = 1L;
         String IpAdress = "192.168.0.1";
-        AnswerOption answerOption = new AnswerOption(
-                "A"
-        );
+        AnswerOption answerOption = new AnswerOption("A");
         Answer answer = new Answer(IpAdress, answerOption);
 
         assertThat(answer.toString()).isEqualTo("Answer{id=null, IpAdress='192.168.0.1', {answerOption='A'}");

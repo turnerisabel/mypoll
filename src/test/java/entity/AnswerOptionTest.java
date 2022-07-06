@@ -12,6 +12,5 @@ public class AnswerOptionTest {
         AnswerOption answerOption = new AnswerOption("A");
 
         assertThat(answerOption.toString()).isEqualTo("{answerOption='A'}");
-
     }
 }
